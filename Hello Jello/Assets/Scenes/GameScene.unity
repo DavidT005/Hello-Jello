@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 15
   jumpMagnitude: 12
+  rayLenght: 0.8
 --- !u!212 &1272585235
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] int playerSpeed = 15;   // How fast will player move
     public float jumpMagnitude = 10f;  //How much is player going to jump
     private Rigidbody2D rb;
+    public float rayLenght= 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -39,20 +40,19 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && CheckObjectBelow() == "Ground")
         {
             rb.velocity += new Vector2(rb.velocity.x, jumpMagnitude);
         }
     }
 
-    GameObject CheckObjectBelow()
+    string CheckObjectBelow()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position,Vector2.down, 5);
-
+        RaycastHit2D hit = Physics2D.Raycast(transform.position,Vector2.down, rayLenght);
+        Debug.DrawRay(transform.position, Vector2.down * rayLenght);
         if(hit.collider != null)
         {
-            print(hit.collider.gameObject.name);
-            return hit.collider.gameObject;
+            return hit.collider.gameObject.name;
         }
         else
         {
