@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && CheckObjectBelow() == "Ground")
+        if (Input.GetButtonDown("Jump") && (CheckObjectBelow() == "Ground" || CheckObjectBelow() == "Hail") )
         {
             rb.velocity += new Vector2(rb.velocity.x, jumpMagnitude);
         }
@@ -48,8 +48,7 @@ public class PlayerController : MonoBehaviour
 
     string CheckObjectBelow()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position,Vector2.down, rayLenght);
-        Debug.DrawRay(transform.position, Vector2.down * rayLenght);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(1,1), 0, Vector2.down, 0.8f);
         if(hit.collider != null)
         {
             return hit.collider.gameObject.name;
