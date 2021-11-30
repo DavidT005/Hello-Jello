@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6806581047579029274}
   m_Layer: 0
   m_Name: Hail
-  m_TagString: Untagged
+  m_TagString: Jumpable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

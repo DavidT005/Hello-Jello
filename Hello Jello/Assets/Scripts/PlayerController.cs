@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Jump();
-        CheckObjectBelow();
+        CheckTagBelow();
 
 
     }
@@ -40,18 +40,18 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && (CheckObjectBelow() == "Ground" || CheckObjectBelow() == "Hail") )
+        if (Input.GetButtonDown("Jump") && CheckTagBelow() == "Jumpable" )
         {
             rb.velocity += new Vector2(rb.velocity.x, jumpMagnitude);
         }
     }
 
-    string CheckObjectBelow()
+    string CheckTagBelow()
     {
         RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(1,1), 0, Vector2.down, 0.8f);
         if(hit.collider != null)
         {
-            return hit.collider.gameObject.name;
+            return hit.collider.gameObject.tag;
         }
         else
         {

@@ -23,7 +23,8 @@ public class HailManager : MonoBehaviour
     void SpawnHail()
     {
         float xHailPos = Random.Range(-10f,10f);
-        Instantiate(hail, new Vector2(xHailPos,5), transform.rotation);
+        GameObject newHail = Instantiate(hail, new Vector2(xHailPos,5), transform.rotation);
+        newHail.transform.parent = transform;
         
     }
 
