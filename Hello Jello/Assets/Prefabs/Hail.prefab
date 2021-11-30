@@ -122,5 +122,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7d0c645dde6e4aca9413277ab5b58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 1.5
+  fallSpeed: 3
   hailGroudcheckLenght: 0.5
