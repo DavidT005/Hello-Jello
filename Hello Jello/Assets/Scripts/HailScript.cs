@@ -32,7 +32,7 @@ public class HailScript : MonoBehaviour
 
     string CheckObjectBelow()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(1,1), 0, Vector2.down, hailGroudcheckLenght);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(2,1), 0, Vector2.down, hailGroudcheckLenght);
         if(hit.collider != null)
         {
             return hit.collider.gameObject.name;

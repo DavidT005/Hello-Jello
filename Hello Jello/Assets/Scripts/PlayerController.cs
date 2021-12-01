@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float jumpMagnitude = 10f;  //How much is player going to jump
     private Rigidbody2D rb;
     public float rayLenght= 1f;
+    public List<AudioClip> playerSounds = new List<AudioClip>();
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
         Move();
         Jump();
         CheckTagBelow();
+        CheckIfCrushed();
 
 
     }
@@ -32,7 +34,6 @@ public class PlayerController : MonoBehaviour
     {
         // We get platform-independet user input
         moveDirection.x = Input.GetAxis("Horizontal");
-        moveDirection.y = Input.GetAxis("Vertical");
 
         // Then we update the player's position
         transform.position += moveDirection * Time.deltaTime * playerSpeed; //Updates position, Time.deltaTime is time between frames
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") && CheckTagBelow() == "Jumpable" )
         {
+            GetComponent<AudioSource>().PlayOneShot(playerSounds[1]);
             rb.velocity += new Vector2(rb.velocity.x, jumpMagnitude);
         }
     }
@@ -69,9 +71,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        
+        print("Laved");
+        collider.GetComponent<AudioSource>().PlayOneShot(playerSounds[0]);
         Destroy(gameObject);
     }
 
+    void CheckIfCrushed()
+    {
+        RaycastHit2D hit1 = Physics2D.BoxCast(transform.position, new Vector2(1,1), 0, Vector2.down, 0.1f);
+        RaycastHit2D hit2 = Physics2D.BoxCast(transform.position, new Vector2(1,1), 0, Vector2.up, 0.1f);
+        if(hit1.collider != null && hit2.collider != null)
+        {
+            GetComponent<AudioSource>().PlayOneShot(playerSounds[2]);
+            GetComponent<SpriteRenderer>().sprite = null;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            
+        }
+    }
 
 }

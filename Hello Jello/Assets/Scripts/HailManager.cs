@@ -25,6 +25,9 @@ public class HailManager : MonoBehaviour
     void SpawnHail()
     {
         GameObject newHail = Instantiate(hail, dropPos, transform.rotation);
+        newHail.GetComponent<SpriteRenderer>().color = Random.ColorHSV(0f, 1f);
+        //float sideLenght = Random.Range(1f,2f);
+        //newHail.transform.localScale = new Vector2(sideLenght, sideLenght);
         newHail.transform.parent = transform;
     }
 
