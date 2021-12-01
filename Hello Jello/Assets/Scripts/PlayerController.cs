@@ -36,6 +36,14 @@ public class PlayerController : MonoBehaviour
 
         // Then we update the player's position
         transform.position += moveDirection * Time.deltaTime * playerSpeed; //Updates position, Time.deltaTime is time between frames
+    
+        if (transform.position.x >= 9 ){
+            transform.position = new Vector2(-8.5f,transform.position.y);
+        }
+        if (transform.position.x <= -9 )
+        {
+            transform.position = new Vector2(8.5f,transform.position.y);
+        }
     }
 
     void Jump()
@@ -57,6 +65,12 @@ public class PlayerController : MonoBehaviour
         {
             return null;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        
+        Destroy(gameObject);
     }
 
 

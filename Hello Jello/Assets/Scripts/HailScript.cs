@@ -17,14 +17,13 @@ public class HailScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.position -= new Vector3(0,fallSpeed * Time.deltaTime, 0); 
         Fall();
     }
 
 
     void Fall()
     {
-        if (CheckObjectBelow() == null || CheckObjectBelow() == "Player" || CheckObjectBelow() == "Hail Manager")
+        if (CheckObjectBelow() == null || CheckObjectBelow() == "Player" || CheckObjectBelow() == "Hail Manager" || CheckObjectBelow() == "Lava")
         {
             transform.position -= new Vector3(0,fallSpeed * Time.deltaTime, 0); 
         }
