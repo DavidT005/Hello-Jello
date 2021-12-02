@@ -1,14 +1,38 @@
-# Hello Jello!
+# Hello Jello
+### Description
 
-This is a casual videogame where you are a jello that tries to survive as long as possible the rising seas and falling hail (?)
-
-This is a link to a Google Drive folder with the binary files for the game (SFX, sprites, music and so on):
-
-https://bit.ly/3xF9mXA
+This is a protoype for a game where you are a jelly trying yo survive.
+On this game you can:
 
 
-The BGM being used on the game at the present moment comes from SVL on Itch.io:
+- Get burned by lava
+- Get crushed by falling blocks
+- ✨Ascend ✨  
 
-https://svl.itch.io/
+### Features
 
-Thank you SVL!
+- Main menu
+- Game
+- Extra big scores
+- Press R to restart!
+- Lava and blocks
+- Bugs, the digital kind
+
+### Credits
+
+| Asse | Creator |
+| ------ | ------ |
+| Game idea | The flash game "Avalanche" by BeastGames |
+| Background art | [Trixelized] on https://trixelized.itch.io/starstring-fields |
+| Background music | [SVL] on https://svl.itch.io/rpg-music-pack-svl |
+
+### _Note_
+
+> This was a quick proyect made on a couple of days
+> by someone just getting into game development
+> if checking the code helps you in any way
+> be my guest.
+
+   [Trixelized]: https://itch.io/profile/trixelized
+   [SVL]: https://svl.itch.io/
+
