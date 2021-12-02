@@ -29,8 +29,8 @@ On this game you can:
 ### _Note_
 
 > This was a quick proyect made on a couple of days
-> by someone just getting into game development
-> if checking the code helps you in any way
+> by someone just getting into game development,
+> if checking the code helps you in any way,
 > be my guest.
 
    [Trixelized]: https://itch.io/profile/trixelized
