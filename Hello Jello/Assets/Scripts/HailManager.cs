@@ -33,7 +33,7 @@ public class HailManager : MonoBehaviour
 
     void UpdateDropPos()
     {
-        dropPos = new Vector2(Random.Range(-10f,10f), dropPos.y + zenithSpeed*Time.deltaTime);
+        dropPos = new Vector2(Random.Range(-7.8f, 7.8f), dropPos.y + zenithSpeed*Time.deltaTime);
     }
 
 

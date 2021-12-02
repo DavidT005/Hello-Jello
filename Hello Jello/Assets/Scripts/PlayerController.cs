@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     public float rayLenght= 1f;
     public List<AudioClip> playerSounds = new List<AudioClip>();
+    public bool isDead = false;
 
     // Start is called before the first frame update
     void Start()
@@ -54,6 +56,10 @@ public class PlayerController : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(playerSounds[1]);
             rb.velocity += new Vector2(rb.velocity.x, jumpMagnitude);
         }
+
+        if (Input.GetKeyDown(KeyCode.R)){
+            SceneManager.LoadScene("GameScene");
+        }
     }
 
     string CheckTagBelow()
@@ -71,9 +77,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        print("Laved");
         collider.GetComponent<AudioSource>().PlayOneShot(playerSounds[0]);
-        Destroy(gameObject);
+        GetComponent<SpriteRenderer>().sprite = null;
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        isDead = true;
     }
 
     void CheckIfCrushed()
@@ -85,6 +92,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(playerSounds[2]);
             GetComponent<SpriteRenderer>().sprite = null;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            isDead = true;
             
         }
     }
